@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -226,6 +227,110 @@
       border-top: 1px solid #bababa;
       margin: 1.2rem 0;
     }
+  
+    /* VISUAL STORY PANELS */
+    .visual-hero {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin: 1.6rem 0 2.2rem;
+    }
+
+    .visual-card {
+      background: #e7e7e7;
+      border: 1px solid #c1c1c1;
+      overflow: hidden;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+    }
+
+    .visual-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      filter: grayscale(100%) contrast(1.02);
+    }
+
+    .visual-card figcaption {
+      padding: 0.75rem 0.9rem 0.9rem;
+      font-size: 0.88rem;
+      color: #343434;
+      border-top: 1px solid #c7c7c7;
+      background: #ededed;
+    }
+
+    .section-media {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 1rem;
+      align-items: stretch;
+      margin: 1rem 0 1.4rem;
+    }
+
+    .section-media.single {
+      grid-template-columns: 1fr;
+    }
+
+    .section-media img {
+      width: 100%;
+      height: 100%;
+      min-height: 240px;
+      object-fit: cover;
+      display: block;
+      border: 1px solid #c8c8c8;
+      filter: grayscale(100%) contrast(1.02);
+    }
+
+    .section-media .media-note {
+      background: #e6e6e6;
+      padding: 1rem 1.1rem;
+      border: 1px solid #c8c8c8;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.7rem;
+    }
+
+    .media-note strong {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: #1d1d1d;
+    }
+
+    .discipline-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin: 1.2rem 0 1.8rem;
+    }
+
+    .discipline-grid .visual-card img {
+      height: 180px;
+    }
+
+    .source-line {
+      font-size: 0.78rem;
+      color: #616161;
+      margin-top: 0.35rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 880px) {
+      .visual-hero,
+      .discipline-grid,
+      .section-media {
+        grid-template-columns: 1fr;
+      }
+
+      .visual-card img,
+      .section-media img {
+        height: 220px;
+        min-height: 220px;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -234,6 +339,29 @@
   <!-- HEADLINE — animated silver gradient, Instrument Serif -->
   <h1 class="headline-grad">UNSCRIPTED VIOLENCE:<br>CONTEXT & RESPONSE</h1>
   <div class="subhead-grad">A research‑based examination of environmental pressure, numerical disparity, and decision‑making under threat.</div>
+
+
+  <section class="visual-hero" aria-label="Visual overview">
+    <figure class="visual-card">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Crowded%20Delhi%20Market.jpeg" alt="Crowded public space">
+      <figcaption>
+        <strong>Crowded space</strong><div class="source-line">Wikimedia Commons / Wikipedia media</div>
+      </figcaption>
+    </figure>
+    <figure class="visual-card">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Roadside%20Nightlife%20%28Unsplash%29.jpg" alt="Night visibility changes the picture">
+      <figcaption>
+        <strong>Open at night</strong><div class="source-line">Wikimedia Commons / Wikipedia media</div>
+      </figcaption>
+    </figure>
+    <figure class="visual-card">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Narrow%20architecture%20in%20Berlin%20%28Unsplash%29.jpg" alt="Closed space limits movement">
+      <figcaption>
+        <strong>Closed space</strong><div class="source-line">Wikimedia Commons / Wikipedia media</div>
+      </figcaption>
+    </figure>
+  </section>
+
 
   <!-- MAIN GRID: article + sidebar -->
   <div class="feature-layout">
@@ -255,7 +383,33 @@
 
       <!-- SECTION: Terrain and Enclosure -->
       <h2 class="section-title">II. Terrain as a Tactical Factor</h2>
+
+      <div class="section-media single">
+        <figure class="visual-card">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Crowded%20Delhi%20Market.jpeg" alt="Crowded public space">
+          <figcaption>
+            <strong>Crowded public setting</strong><div class="source-line">Crowding changes movement, sightlines, and exit options</div>
+          </figcaption>
+        </figure>
+      </div>
+
       <p><strong>Crowded spaces</strong> — public transit platforms, market aisles, festival grounds — constrain mobility while simultaneously offering cover in the form of other people. The primary defensive challenge in a crowd is the inability to create distance. Physical contact can occur before any verbal warning. In such settings, a tight guard that protects the head and torso while allowing for rapid, small steps is essential. The crowd itself can be used to break line of sight and slip away. Force escalations in crowded areas carry significant risk of injuring uninvolved third parties, which can rapidly alter the legal and social consequences of an encounter.</p>
+
+
+      <div class="section-media">
+        <figure class="visual-card">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Roadside%20Nightlife%20%28Unsplash%29.jpg" alt="Night visibility changes the picture">
+          <figcaption>
+            <strong>Night conditions</strong><div class="source-line">Visibility, depth, and awareness all degrade after dark</div>
+          </figcaption>
+        </figure>
+        <figure class="visual-card">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Narrow%20architecture%20in%20Berlin%20%28Unsplash%29.jpg" alt="Closed space limits movement">
+          <figcaption>
+            <strong>Closed corridor</strong><div class="source-line">Lateral movement disappears when space narrows</div>
+          </figcaption>
+        </figure>
+      </div>
 
       <p><strong>Closed spaces</strong> — elevators, narrow hallways, stairwells, vehicle interiors — remove lateral escape entirely. There is no room to circle or retreat. Balance and footing become critical because walls and furniture limit movement. Any committed strike may be deflected by a wall or ceiling, reducing its effectiveness. The threat of being pinned or cornered changes the value of grappling: what might be a viable control in open space can become a trap if a second person arrives. Escape from a closed space often hinges on creating a sudden, explosive disruption — a sharp push, a loud command, or a rapid change of level — to open a narrow window for exit.</p>
 
@@ -288,6 +442,22 @@
       <!-- NEW SECTION: Boxing, TKD, Judo — context-aware analysis -->
       <h2 class="section-title">V. Training Modalities and Contextual Transfer</h2>
       <p>Formal martial disciplines provide structured environments for developing attributes that may prove useful in real confrontations. Yet the transfer of skills from a gym or dojo to an uncertain street encounter is far from automatic. Each discipline offers a specific lens through which to view distance, balance, and timing. Understanding what a given art emphasizes — and what it leaves unaddressed — helps the practitioner avoid the trap of mistaking sportive proficiency for universal readiness. The following examination of boxing, taekwondo, and judo is not a ranking; it is an analysis of how the core competencies of each align with or diverge from the situational demands described earlier.</p>
+
+      <div class="discipline-grid" aria-label="Discipline visuals">
+        <figure class="visual-card">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Boxing%20gloves%20Bail%2010-OZ%20%281%29.jpg" alt="Boxing: hands, guard, timing">
+          <figcaption><strong>Boxing</strong><div class="source-line">Hands, guard, timing</div></figcaption>
+        </figure>
+        <figure class="visual-card">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Taekwondo%20%288196107830%29.jpg" alt="Taekwondo: range and mobility">
+          <figcaption><strong>Taekwondo</strong><div class="source-line">Range, entry, mobility</div></figcaption>
+        </figure>
+        <figure class="visual-card">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Olympic%20Judo%20London%202012%20%2894%20of%2098%29.jpg" alt="Judo: clinch and balance">
+          <figcaption><strong>Judo</strong><div class="source-line">Clinch, balance, control</div></figcaption>
+        </figure>
+      </div>
+
 
       <h3 class="subsection-title">Boxing · Hand Speed and Angular Awareness</h3>
       <p>Boxing cultivates an acute sense of distance, head movement, and combination striking under pressure. The ability to maintain a tight guard while delivering rapid, accurate punches is a significant asset in a one‑on‑one encounter where space allows for footwork. Boxers are trained to read an opponent's weight shifts and to exploit openings with economy of motion. However, the sport's rule set — no grappling, no strikes below the waist, no multiple opponents — creates vulnerabilities when transferred to less regulated settings. In a crowded or closed space, the lateral movement that defines boxing footwork may be impossible. Against multiple attackers, the habit of planting to deliver combinations can be fatal; a boxer's instinct to engage rather than disengage runs counter to the escape priority required in such scenarios. Furthermore, bare‑knuckle striking against hard targets like the skull carries a high risk of hand injury, a concern absent when wearing gloves and wraps. Boxing's greatest contribution to real‑world defense may be its conditioning of reaction time and its development of a reflexive guard — attributes that function even when the environment collapses into chaos.</p>
@@ -391,9 +561,9 @@
 
   <!-- FOOTER — restrained, editorial -->
   <div class="footer-note">
-    <span>RESEARCH & ANALYSIS · PRACTICAL REPORTING · NO FIXED STYLE</span>
+    <span>RESEARCH & ANALYSIS · PRACTICAL REPORTING · NO FIXED STYLE</span><br><small style="display:block;margin-top:.45rem;letter-spacing:.04em;">Visual media sourced from Wikimedia Commons / Wikipedia-compatible files</small>
   </div>
   <!-- No dates, no version, no fake author — pure silver journalism -->
 </div>
 </body>
-</html>
+</html> 
