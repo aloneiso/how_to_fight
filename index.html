@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Real‑World Defense · Situational Analysis</title>
+  <!-- Instrument Serif for titles -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    /* RESET & SILVER BASE — clean, newspaper aesthetic */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #d9d9d9;        /* soft silver backdrop */
+      font-family: 'Georgia', 'Times New Roman', Times, serif;
+      color: #1c1c1c;
+      line-height: 1.7;
+      padding: 2.5rem 1.5rem;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* main paper — silver theme, not pure white */
+    .newspaper {
+      max-width: 1360px;
+      margin: 0 auto;
+      background: #f0f0f0;        /* light silver gray */
+      box-shadow: 0 6px 18px rgba(0,0,0,0.03), 0 2px 4px rgba(0,0,0,0.02);
+      padding: 3.5rem 3.2rem;
+      border: 1px solid #c8c8c8;
+    }
+
+    /* TYPOGRAPHY — Instrument Serif for titles, animated gradient */
+    h1, h2, h3, .serif {
+      font-family: 'Instrument Serif', 'Times New Roman', serif;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+    }
+
+    /* animated silver gradient — main headline */
+    .headline-grad {
+      font-size: 4.8rem;
+      line-height: 1.05;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      background: linear-gradient(130deg, #4a4a4a 0%, #8f8f8f 20%, #b0b0b0 40%, #7a7a7a 60%, #5a5a5a 80%, #a0a0a0 100%);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: silverFlow 11s ease infinite;
+    }
+
+    @keyframes silverFlow {
+      0% { background-position: 0% 30%; }
+      50% { background-position: 100% 70%; }
+      100% { background-position: 0% 30%; }
+    }
+
+    .subhead-grad {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      background: linear-gradient(135deg, #606060, #3a3a3a);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 2.2rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid #b0b0b0;
+      letter-spacing: 0.02em;
+    }
+
+    /* section headings */
+    .section-title {
+      font-family: 'Instrument Serif', serif;
+      font-size: 2.2rem;
+      margin: 2.8rem 0 1rem;
+      color: #1e1e1e;
+      border-bottom: 1px solid #a8a8a8;
+      padding-bottom: 0.4rem;
+    }
+
+    .subsection-title {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.5rem;
+      margin: 2rem 0 0.8rem;
+      color: #252525;
+    }
+
+    /* layout: main article + sidebar */
+    .feature-layout {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 3rem;
+      margin-top: 0.8rem;
+    }
+
+    /* article body — mature, serious tone */
+    .article-body {
+      font-size: 1.08rem;
+      text-align: justify;
+    }
+
+    .article-body p {
+      margin-bottom: 1.4rem;
+    }
+
+    .dropcap::first-letter {
+      font-size: 4.6em;
+      float: left;
+      line-height: 0.8;
+      margin-right: 0.15rem;
+      margin-top: 0.1rem;
+      font-weight: 400;
+      color: #1a1a1a;
+      font-family: 'Times New Roman', serif;
+    }
+
+    /* context emphasis blocks — silver detail */
+    .context-note {
+      background: #e6e6e6;
+      padding: 1.2rem 1.6rem;
+      margin: 1.8rem 0;
+      border-left: 5px solid #7e7e7e;
+      font-size: 0.98rem;
+      box-shadow: inset 0 1px 3px rgba(255,255,255,0.5);
+    }
+
+    /* SIDEBAR — supporting content, silver cards */
+    .sidebar {
+      border-left: 1px solid #bcbcbc;
+      padding-left: 2rem;
+    }
+
+    .info-module {
+      margin-bottom: 2.5rem;
+      background: #eaeaea;
+      padding: 1.3rem 1.5rem;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+    }
+
+    .info-module h3 {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      border-bottom: 1px dotted #8a8a8a;
+      padding-bottom: 0.4rem;
+      color: #1f1f1f;
+    }
+
+    .principle-list {
+      list-style: none;
+    }
+
+    .principle-list li {
+      margin-bottom: 0.9rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid #c2c2c2;
+    }
+
+    .principle-list li:last-child {
+      border-bottom: none;
+    }
+
+    .principle-list strong {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      display: block;
+      margin-bottom: 0.15rem;
+      color: #111;
+    }
+
+    .context-tag {
+      display: inline-block;
+      background: #d6d6d6;
+      padding: 0.1rem 0.8rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-right: 0.5rem;
+      margin-bottom: 0.3rem;
+      border-radius: 20px;
+      color: #2b2b2b;
+    }
+
+    .footer-note {
+      margin-top: 3rem;
+      padding-top: 1.8rem;
+      border-top: 2px solid #b3b3b3;
+      font-family: 'Instrument Serif', serif;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #4f4f4f;
+      text-align: right;
+    }
+
+    /* responsive */
+    @media (max-width: 880px) {
+      .feature-layout {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      .sidebar {
+        border-left: none;
+        padding-left: 0;
+      }
+      .newspaper {
+        padding: 2rem 1.8rem;
+      }
+      .headline-grad {
+        font-size: 3.2rem;
+      }
+    }
+
+    /* no decoration, no fake quotes */
+    hr {
+      border: none;
+      border-top: 1px solid #bababa;
+      margin: 1.2rem 0;
+    }
+  </style>
+</head>
+<body>
+<div class="newspaper">
+
+  <!-- HEADLINE — animated silver gradient, Instrument Serif -->
+  <h1 class="headline-grad">UNSCRIPTED VIOLENCE:<br>CONTEXT & RESPONSE</h1>
+  <div class="subhead-grad">A research‑based examination of environmental pressure, numerical disparity, and decision‑making under threat.</div>
+
+  <!-- MAIN GRID: article + sidebar -->
+  <div class="feature-layout">
+    <!-- LEFT: FULL ARTICLE BODY — substantial detail -->
+    <article class="article-body">
+      <p class="dropcap">Real‑world confrontations bear little resemblance to the controlled exchanges of a training hall. The variables that determine outcomes are seldom technical; they are contextual. Lighting, footing, the presence of additional individuals, and the speed of onset all alter the calculus of self‑preservation. This feature surveys the situational dimensions of interpersonal violence without allegiance to any single method. The focus remains on practical, observable factors that shift the balance between harm and escape.</p>
+
+      <p>What follows is a structured analysis of how different environments and configurations change viable options. The intention is not to prescribe a set of techniques but to illuminate the principles that underlie effective defensive behavior across a spectrum of real incidents.</p>
+
+      <!-- SECTION: Numerical Configurations -->
+      <h2 class="section-title">I. The Arithmetic of Engagement</h2>
+      <p><strong>One person versus one person</strong> remains the default assumption of most training curricula. Even here, however, the environment exerts more influence than is often acknowledged. In an open area with good visibility, distance management and angular movement are the primary tools. The defender who can maintain a reactionary gap while denying a direct line of attack reduces the likelihood of being struck or grabbed. Balance and footing become central; any misstep on uneven ground or a slippery surface can collapse the defensive posture instantly. Yet the one‑on‑one scenario is an anomaly in public violence.</p>
+
+      <p><strong>One person versus multiple attackers</strong> represents a fundamental shift in priority. The objective is no longer to prevail in an exchange but to exit the area of danger. Movement must be constant and purposeful. Attempting to engage one aggressor for more than a brief moment exposes the back and flanks to others. The geometry of the encounter forces the defender to create separation and use obstacles as temporary shields. Even highly conditioned individuals find that two or more determined adversaries compress reaction windows to fractions of a second. The principle of “stacking” — positioning opponents so that they obstruct each other — can buy precious moments, but it demands spatial awareness under extreme duress.</p>
+
+      <p><strong>Two people versus one person</strong> is not a fight; it is an overwhelming force application. The numerical advantage allows one party to occupy attention while the other attacks from an oblique angle. This is a common dynamic in street robberies, carjackings, and group intimidation. For the lone defender, any attempt to stand and trade blows is almost certain to fail. The only rational counter is immediate disengagement toward an exit, a public thoroughfare, or a place of safety. Awareness of escape routes must be automatic, as there is rarely time to scan during the incident itself.</p>
+
+      <p><strong>Small group situations</strong> — three to five individuals, often with unclear allegiances — introduce a layer of confusion. Voices overlap, movement becomes erratic, and the boundary between participant and bystander blurs. Reading the situation in such an environment is a distinct skill. Identifying who is driving the escalation, who is hesitant, and where the path of least resistance lies can prevent physical engagement altogether. In these moments, awareness matters more than force. A calm, deliberate retreat often defuses the group dynamic more effectively than any aggressive posture.</p>
+
+      <!-- SECTION: Terrain and Enclosure -->
+      <h2 class="section-title">II. Terrain as a Tactical Factor</h2>
+      <p><strong>Crowded spaces</strong> — public transit platforms, market aisles, festival grounds — constrain mobility while simultaneously offering cover in the form of other people. The primary defensive challenge in a crowd is the inability to create distance. Physical contact can occur before any verbal warning. In such settings, a tight guard that protects the head and torso while allowing for rapid, small steps is essential. The crowd itself can be used to break line of sight and slip away. Force escalations in crowded areas carry significant risk of injuring uninvolved third parties, which can rapidly alter the legal and social consequences of an encounter.</p>
+
+      <p><strong>Closed spaces</strong> — elevators, narrow hallways, stairwells, vehicle interiors — remove lateral escape entirely. There is no room to circle or retreat. Balance and footing become critical because walls and furniture limit movement. Any committed strike may be deflected by a wall or ceiling, reducing its effectiveness. The threat of being pinned or cornered changes the value of grappling: what might be a viable control in open space can become a trap if a second person arrives. Escape from a closed space often hinges on creating a sudden, explosive disruption — a sharp push, a loud command, or a rapid change of level — to open a narrow window for exit.</p>
+
+      <p><strong>Open spaces</strong> — parking lots, streets, parks, fields — offer superior sightlines but also allow threats to spread out. Distance can be managed more deliberately, but multiple attackers can attempt encirclement. During <strong>daytime</strong>, visibility generally favors the defender's awareness and allows for early recognition of potential threats. In <strong>nighttime situations</strong>, low light degrades depth perception, narrows peripheral vision, and makes it harder to localize sounds. Moving toward light sources and populated areas becomes a priority. Uneven ground, curbs, and debris challenge footing in ways that are absent from a gym floor.</p>
+
+      <div class="context-note">
+        <strong>Day / Night Variance:</strong> Darkness alters reaction time and increases the likelihood of surprise. The same open parking lot that feels manageable at noon becomes a high‑uncertainty environment after sunset. Defensive behavior must adjust: slower, more deliberate movement, and heightened reliance on auditory cues.
+      </div>
+
+      <!-- SECTION: Temporal Unfolding -->
+      <h2 class="section-title">III. The Arc of Confrontation</h2>
+      <p><strong>Sudden attacks</strong> bypass the cognitive appraisal phase. The body reacts reflexively; trained motor programs can be overridden by the startle response. The first objective is to shorten the freeze — the momentary paralysis that follows an unexpected stimulus. Immediate protective actions, such as covering the head and lowering the center of gravity, are more reliable than attempting a complex counter. In sudden attacks, the initial seconds determine whether the defender can transition from reflexive protection to deliberate, goal‑oriented movement.</p>
+
+      <p><strong>Slow escalation and verbal tension</strong> present a different kind of pressure. The threat is ambiguous, and social norms discourage overt readiness. In these moments, reading micro‑shifts — weight transfer, hand concealment, glances toward potential accomplices — becomes paramount. Maintaining a non‑provocative guard, with hands raised as if gesturing or adjusting clothing, can reduce the reaction time if physical contact becomes inevitable. The goal during verbal tension is to de‑escalate or reposition without triggering a rush. Walking away, when possible, is the highest‑percentage option.</p>
+
+      <p><strong>Physical contact at close range</strong> often begins with a shove, a grab, or a collar tie. This removes the buffer of distance and forces an immediate focus on balance and structural integrity. The person who can maintain a stable base while disrupting the other's footing gains a decisive advantage. Close range also obscures vision of the lower body, making sweeps, trips, and foot obstructions unexpectedly effective. In clinch scenarios, protecting the head and maintaining awareness of the surrounding environment — walls, furniture, other people — prevents being maneuvered into a worse position or into the path of a second threat.</p>
+
+      <!-- SECTION: Cognitive & Temporal Pressure -->
+      <h2 class="section-title">IV. Cognition Under Pressure</h2>
+      <p><strong>Uncertain environments</strong> — construction sites, unfamiliar buildings, poorly lit streets — multiply the cognitive load. The brain must process potential threat cues while simultaneously navigating obstacles and maintaining balance. Time pressure forces rapid, often heuristic, decisions. Under high stress, fine motor skills degrade predictably; gross movements such as pushing, pulling, running, and covering remain more accessible. Controlling panic is not a function of willpower alone but of prior exposure to pressure simulations. Even simple drills performed under fatigue, noise, or time constraints can recalibrate the threshold at which panic sets in.</p>
+
+      <p><strong>Escape‑focused situations</strong> demand a fundamental shift in mentality. Much of traditional training emphasizes prevailing within an exchange. In an uncertain or multiple‑threat scenario, however, the only meaningful victory is leaving safely. Choosing escape over ego means disregarding insults, avoiding entanglement, and moving decisively toward a predetermined exit. Awareness of escape routes should be cultivated as a habit, much like checking mirrors while driving.</p>
+
+      <p><strong>When the threat is far away versus close range:</strong> At a distance, time allows for positioning, verbal commands, and seeking barriers or cover. As the distance closes, reaction time shrinks non‑linearly. Inside approximately two meters, a committed attacker can cover the remaining gap before a defender can fully process and execute a response. Thus, managing distance is a continuous, dynamic process, not a static position. The defender must constantly reassess the gap and adjust accordingly.</p>
+
+      <p><strong>How time pressure affects decision making:</strong> Under severe time constraints, the brain defaults to the most deeply ingrained patterns. This is why reflexive protection of the head and centerline is emphasized across disparate defensive disciplines. The luxury of analyzing an opponent's stance or intentions evaporates; what remains is instinct and trained habit. Understanding this narrows the gap between expectation and performance, and it underscores the value of simple, robust actions over complex sequences.</p>
+
+      <p>The principle that <strong>awareness matters more than force</strong> is borne out by incident analysis. Most documented defensive encounters that end without serious injury involve early recognition and avoidance. Force becomes necessary only after awareness has failed. Cultivating observation habits — scanning for exits, noting clusters of people, registering anomalies in the environment — reduces the likelihood of being caught in the worst‑case scenario. In the real world, the most effective defense is the one that never needs to be tested.</p>
+
+      <!-- NEW SECTION: Boxing, TKD, Judo — context-aware analysis -->
+      <h2 class="section-title">V. Training Modalities and Contextual Transfer</h2>
+      <p>Formal martial disciplines provide structured environments for developing attributes that may prove useful in real confrontations. Yet the transfer of skills from a gym or dojo to an uncertain street encounter is far from automatic. Each discipline offers a specific lens through which to view distance, balance, and timing. Understanding what a given art emphasizes — and what it leaves unaddressed — helps the practitioner avoid the trap of mistaking sportive proficiency for universal readiness. The following examination of boxing, taekwondo, and judo is not a ranking; it is an analysis of how the core competencies of each align with or diverge from the situational demands described earlier.</p>
+
+      <h3 class="subsection-title">Boxing · Hand Speed and Angular Awareness</h3>
+      <p>Boxing cultivates an acute sense of distance, head movement, and combination striking under pressure. The ability to maintain a tight guard while delivering rapid, accurate punches is a significant asset in a one‑on‑one encounter where space allows for footwork. Boxers are trained to read an opponent's weight shifts and to exploit openings with economy of motion. However, the sport's rule set — no grappling, no strikes below the waist, no multiple opponents — creates vulnerabilities when transferred to less regulated settings. In a crowded or closed space, the lateral movement that defines boxing footwork may be impossible. Against multiple attackers, the habit of planting to deliver combinations can be fatal; a boxer's instinct to engage rather than disengage runs counter to the escape priority required in such scenarios. Furthermore, bare‑knuckle striking against hard targets like the skull carries a high risk of hand injury, a concern absent when wearing gloves and wraps. Boxing's greatest contribution to real‑world defense may be its conditioning of reaction time and its development of a reflexive guard — attributes that function even when the environment collapses into chaos.</p>
+
+      <h3 class="subsection-title">Taekwondo · Distance Dominance and the Limits of Kicking</h3>
+      <p>Taekwondo specializes in long‑range striking, emphasizing speed, precision, and the ability to control distance with kicks. In an open space, a practitioner who can maintain a gap with front kicks or side kicks may deter an aggressor before physical contact occurs. The art's focus on mobility and rapid retraction of the kicking leg aligns well with the principle of managing distance. Yet real‑world constraints rapidly expose the limitations of a kicking‑centric approach. On wet, uneven, or cluttered ground, high kicks become precarious; balance is easily compromised. In a crowded or enclosed area, the chambering motion required for most taekwondo kicks is impractical. Against multiple attackers, committing to a kick leaves the defender momentarily on one leg, an untenable position if a second person rushes in. Moreover, the close‑range clinch is largely outside taekwondo's competitive framework. The practitioner who has only trained at long range may find themselves without reliable tools when an attacker closes the distance suddenly. The value of taekwondo in self‑defense lies not in its spectacular techniques but in its development of explosive movement and an intuitive grasp of range — provided the practitioner also cultivates a close‑quarters contingency.</p>
+
+      <h3 class="subsection-title">Judo · Balance Disruption and the Reality of the Clinch</h3>
+      <p>Judo's core competency is the manipulation of an opponent's balance through grips, off‑balancing, and throws. In the close‑range chaos of a sudden grab or shove, judo provides immediate, high‑percentage responses. The ability to break an assailant's posture and redirect their momentum can end a physical confrontation before it escalates further. Judo training also instills a high level of comfort with falling and scrambling on the ground, reducing the panic associated with being taken down. However, judo's reliance on the gi — the traditional jacket — for grips creates a dependency that does not always translate to street clothing. While many throws can be adapted to no‑gi grips, the adaptation requires deliberate practice. Additionally, judo's competitive format emphasizes a single opponent on a matted surface. Executing a throw on concrete carries serious consequences for both parties, and the commitment to a throw can leave the defender vulnerable to a third party. In a multiple‑attacker scenario, going to the ground — even in a dominant position — is almost always a tactical error. Judo's most transferable assets are its understanding of kuzushi (balance breaking) and its development of a strong, stable base — qualities that enhance survival in any close‑range, uncertain environment.</p>
+
+      <p>The common thread across these three disciplines is that none is complete in isolation. A boxer's hands, a taekwondo practitioner's understanding of range, and a judoka's clinch instincts can each serve as a piece of a larger defensive puzzle. The critical factor is not the style but the practitioner's ability to adapt core principles — guard, distance, balance, and escape — to the specific, unforgiving context of the moment.</p>
+    </article>
+
+    <!-- RIGHT SIDEBAR — supporting content, silver blocks -->
+    <aside class="sidebar">
+      <!-- Context quick reference -->
+      <div class="info-module">
+        <h3>Contextual Variables</h3>
+        <ul class="principle-list">
+          <li><strong>1 vs 1</strong> — baseline; distance & angle rule.</li>
+          <li><strong>1 vs multiple</strong> — movement priority; escape essential.</li>
+          <li><strong>2 vs 1</strong> — angle exposure; immediate disengage.</li>
+          <li><strong>Small group</strong> — confusion; read hesitancy.</li>
+          <li><strong>Crowded</strong> — limited mobility; use density to slip away.</li>
+          <li><strong>Closed space</strong> — no lateral; explosive disruption.</li>
+          <li><strong>Open space</strong> — sightlines but encirclement risk.</li>
+          <li><strong>Day / Night</strong> — light changes reaction & depth.</li>
+          <li><strong>Sudden attack</strong> — startle/flinch management.</li>
+          <li><strong>Slow escalation</strong> — read pre‑contact cues.</li>
+          <li><strong>Verbal tension</strong> — guard without provocation.</li>
+          <li><strong>Close contact</strong> — clinch, footing, head protection.</li>
+          <li><strong>Uncertain env.</strong> — cognitive load high.</li>
+          <li><strong>Escape priority</strong> — ego suppression.</li>
+          <li><strong>High stress</strong> — gross motor reliance.</li>
+          <li><strong>Surprise</strong> — OODA loop disruption.</li>
+          <li><strong>Awareness > force</strong> — pre‑incident positioning.</li>
+        </ul>
+      </div>
+
+      <!-- Core Principles Block -->
+      <div class="info-module">
+        <h3>Tactical Constants</h3>
+        <ul class="principle-list">
+          <li><strong>Reading the situation</strong> Scan exits, numbers, emotional temperature.</li>
+          <li><strong>Distance & angle</strong> Maintain reactive gap; move offline.</li>
+          <li><strong>Balance & footing</strong> Centered weight; avoid crossing feet.</li>
+          <li><strong>Reaction time</strong> Pre‑emptive movement when imminent.</li>
+          <li><strong>Guard & protection</strong> High hands, chin down, elbows in.</li>
+          <li><strong>Controlling panic</strong> Tactical breathing, task focus.</li>
+          <li><strong>Escape over ego</strong> Departure is the only reliable win.</li>
+        </ul>
+      </div>
+
+      <!-- What changes when... -->
+      <div class="info-module">
+        <h3>When Variables Shift</h3>
+        <ul class="principle-list">
+          <li><strong>+ Multiple people</strong> Angle management becomes survival; linear attacks fail.</li>
+          <li><strong>+ Tight spaces</strong> Footwork reduced to small pivots; use walls for balance.</li>
+          <li><strong>+ Sudden attack</strong> Gross protective response first, then orient.</li>
+          <li><strong>+ Far vs close</strong> Far: time to de‑escalate; close: immediate guard.</li>
+          <li><strong>+ Time pressure</strong> Heuristics override analysis; train simple actions.</li>
+        </ul>
+      </div>
+
+      <!-- NEW: Disciplinary Notes (sidebar) -->
+      <div class="info-module">
+        <h3>Disciplinary Context</h3>
+        <ul class="principle-list">
+          <li><strong>Boxing</strong> — exceptional hands & head movement; vulnerable to multiple attackers and clinch without modification.</li>
+          <li><strong>Taekwondo</strong> — long‑range kicking and distance control; high kicks risky on uncertain ground; close range gap.</li>
+          <li><strong>Judo</strong> — balance breaking and throws effective in clinch; grip dependency and ground risk with multiples.</li>
+        </ul>
+      </div>
+
+      <!-- Context tags — silver -->
+      <div style="margin-top: 2rem;">
+        <span class="context-tag">1v1</span>
+        <span class="context-tag">1vMulti</span>
+        <span class="context-tag">2v1</span>
+        <span class="context-tag">group</span>
+        <span class="context-tag">crowd</span>
+        <span class="context-tag">closed</span>
+        <span class="context-tag">open</span>
+        <span class="context-tag">day</span>
+        <span class="context-tag">night</span>
+        <span class="context-tag">sudden</span>
+        <span class="context-tag">escalation</span>
+        <span class="context-tag">verbal</span>
+        <span class="context-tag">close</span>
+        <span class="context-tag">uncertain</span>
+        <span class="context-tag">escape</span>
+        <span class="context-tag">stress</span>
+        <span class="context-tag">surprise</span>
+        <span class="context-tag">boxing</span>
+        <span class="context-tag">tkd</span>
+        <span class="context-tag">judo</span>
+      </div>
+    </aside>
+  </div>
+
+  <!-- FOOTER — restrained, editorial -->
+  <div class="footer-note">
+    <span>RESEARCH & ANALYSIS · PRACTICAL REPORTING · NO FIXED STYLE</span>
+  </div>
+  <!-- No dates, no version, no fake author — pure silver journalism -->
+</div>
+</body>
+</html>
